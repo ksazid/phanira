@@ -1,4 +1,4 @@
-/* Venture Blueprint — portfolio + product branding */
+/* Venture Blueprint — product card + product branding */
 
 .portfolio-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -39,8 +39,17 @@
   margin-top: 13px;
 }
 
+/* Kairo description typography is the standard for every product card. */
+.brand-card .card-content > p {
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: normal;
+}
+
 .venture-card .card-content p {
-  max-width: 70%;
+  max-width: 67%;
 }
 
 .art-venture {
