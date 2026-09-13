@@ -11,7 +11,7 @@ export default function CitizenAIPage() {
     <ProductDetail
       name="CitizenAI"
       category="LEARNING & CIVIC INTELLIGENCE"
-      headline="A clearer path from first diagnostic to pass ready."
+      headline="A clearer path from first diagnostic to Pass Ready."
       intro="CitizenAI turns a broad citizenship syllabus into a focused learning journey shaped around what each learner knows, misses and needs next."
       promise="Learn what matters. Know what to do next. Build readiness with confidence."
       steps={["Welcome", "Diagnostic", "Result", "Home", "Learning", "Pass Ready"]}
@@ -30,7 +30,7 @@ export default function CitizenAIPage() {
           body: "Keep the learner oriented with a clear home, focused learning states and an understandable path toward readiness.",
         },
         {
-          title: "Move toward pass ready",
+          title: "Move toward Pass Ready",
           body: "Bring knowledge, practice and confidence together into a final readiness state that tells the learner where they stand.",
         },
       ]}
