@@ -64,6 +64,11 @@
   clip-path: polygon(10% 26%, 100% 0, 100% 100%, 0 100%, 0 60%);
 }
 
+.product-detail-brand {
+  margin-top: 20px;
+  color: white;
+}
+
 .venture-blueprint-page .product-hero {
   position: relative;
   overflow: hidden;
