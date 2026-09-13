@@ -1,28 +1,42 @@
 /* Living Horizon — enhancement layer only. Static design remains unchanged without JS. */
 
 .motion-ready .site-header {
-  animation: lhHeaderIn 620ms var(--ease-out) both;
+  animation: lhHeaderIn 520ms var(--ease-out) both;
 }
 
 .motion-ready .hero-kicker,
-.motion-ready .hero-copy h1,
 .motion-ready .hero-copy p,
 .motion-ready .hero-actions,
 .motion-ready .hero-side,
 .motion-ready .hero-bottom-left,
 .motion-ready .hero-bottom-right {
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
-  animation: lhHeroIn 760ms var(--ease-out) forwards;
+  transform: translate3d(0, 14px, 0);
+  animation: lhHeroIn 640ms var(--ease-out) forwards;
 }
 
-.motion-ready .hero-kicker { animation-delay: 100ms; }
-.motion-ready .hero-copy h1 { animation-delay: 180ms; }
-.motion-ready .hero-copy p { animation-delay: 300ms; }
-.motion-ready .hero-actions { animation-delay: 410ms; }
-.motion-ready .hero-side { animation-delay: 470ms; }
-.motion-ready .hero-bottom-left { animation-delay: 520ms; }
-.motion-ready .hero-bottom-right { animation-delay: 570ms; }
+.hero-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-line > span {
+  display: block;
+}
+
+.motion-ready .hero-line > span {
+  transform: translateY(105%);
+  animation: lhHeroLineIn 720ms var(--ease-out) forwards;
+}
+
+.motion-ready .hero-kicker { animation-delay: 80ms; }
+.motion-ready .hero-line:first-child > span { animation-delay: 150ms; }
+.motion-ready .hero-line:last-child > span { animation-delay: 220ms; }
+.motion-ready .hero-copy p { animation-delay: 290ms; }
+.motion-ready .hero-actions { animation-delay: 370ms; }
+.motion-ready .hero-side { animation-delay: 420ms; }
+.motion-ready .hero-bottom-left { animation-delay: 460ms; }
+.motion-ready .hero-bottom-right { animation-delay: 500ms; }
 
 .hero {
   background-position: center calc(48% + var(--parallax-y, 0px));
@@ -34,7 +48,7 @@
   inset: -8%;
   z-index: 1;
   pointer-events: none;
-  opacity: .22;
+  opacity: .2;
   background-image:
     radial-gradient(circle at 18% 28%, rgba(255,255,255,.95) 0 1px, transparent 1.4px),
     radial-gradient(circle at 37% 18%, rgba(255,255,255,.55) 0 1px, transparent 1.4px),
@@ -43,7 +57,7 @@
     radial-gradient(circle at 52% 36%, rgba(255,255,255,.55) 0 1px, transparent 1.3px),
     radial-gradient(circle at 74% 12%, rgba(255,255,255,.75) 0 1px, transparent 1.3px);
   background-size: 260px 210px, 330px 260px, 390px 300px, 430px 340px, 510px 390px, 620px 480px;
-  animation: lhStarDrift 30s linear infinite;
+  animation: lhStarDrift 34s linear infinite;
 }
 
 .hero-overlay { z-index: 1; overflow: hidden; }
@@ -55,19 +69,19 @@
   top: 45%;
   height: 2px;
   pointer-events: none;
-  opacity: .46;
+  opacity: .42;
   filter: blur(5px);
-  background: linear-gradient(90deg, transparent, rgba(255,214,172,.45) 28%, rgba(255,239,213,.92) 54%, rgba(155,211,255,.28) 80%, transparent);
-  box-shadow: 0 0 26px rgba(255,218,176,.32);
-  animation: lhHorizonPulse 7s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255,214,172,.42) 28%, rgba(255,239,213,.88) 54%, rgba(155,211,255,.25) 80%, transparent);
+  box-shadow: 0 0 24px rgba(255,218,176,.28);
+  animation: lhHorizonPulse 8s ease-in-out infinite;
 }
 
 .motion-reveal {
   opacity: 0;
-  transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 16px, 0);
   transition:
-    opacity 720ms var(--ease-out) var(--reveal-delay, 0ms),
-    transform 720ms var(--ease-out) var(--reveal-delay, 0ms);
+    opacity 640ms var(--ease-out) var(--reveal-delay, 0ms),
+    transform 640ms var(--ease-out) var(--reveal-delay, 0ms);
 }
 
 .motion-reveal.is-visible {
@@ -81,9 +95,9 @@
   --card-x: 0px;
   --card-y: 0px;
   transition:
-    transform 220ms var(--ease-out),
-    box-shadow 220ms var(--ease-out),
-    border-color 220ms var(--ease-out);
+    transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
 }
 
 .brand-card::before {
@@ -93,19 +107,33 @@
   z-index: 1;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(260px circle at var(--spot-x) var(--spot-y), rgba(116,174,222,.15), transparent 62%);
-  transition: opacity 220ms var(--ease-out);
+  background: radial-gradient(260px circle at var(--spot-x) var(--spot-y), rgba(116,174,222,.13), transparent 62%);
+  transition: opacity 180ms var(--ease-out);
+}
+
+.brand-card::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-150%, 0, 0);
+  background: linear-gradient(90deg, transparent, rgba(126,190,236,.8), rgba(255,255,255,.88), transparent);
 }
 
 .card-art {
-  transition: transform 320ms var(--ease-out), opacity 320ms var(--ease-out);
+  transition: transform 260ms var(--ease-out), opacity 260ms var(--ease-out);
 }
 
 .card-link span,
 .text-link span,
 .btn span {
   display: inline-block;
-  transition: transform 180ms var(--ease-out);
+  transition: transform 160ms var(--ease-out);
 }
 
 .card-link:hover span,
@@ -125,31 +153,34 @@
 .why-grid article svg,
 .cap-grid article svg {
   transform-origin: 50% 50%;
-  transition: transform 420ms var(--ease-out), opacity 420ms var(--ease-out);
+  transition: transform 360ms var(--ease-out), opacity 360ms var(--ease-out);
 }
 
 .why-grid article.is-visible svg,
 .cap-grid article.is-visible svg {
-  animation: lhIconIn 620ms var(--ease-out) both;
+  animation: lhIconIn 540ms var(--ease-out) both;
 }
 
 .capabilities {
   position: relative;
   overflow: hidden;
+  --cap-glow-x: 72%;
+  --cap-glow-y: 50%;
 }
 
 .capabilities::before {
   content: "";
   position: absolute;
-  width: 420px;
-  height: 420px;
-  left: var(--cap-glow-x, 70%);
-  top: 50%;
+  width: 400px;
+  height: 400px;
+  left: var(--cap-glow-x);
+  top: var(--cap-glow-y);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  opacity: .16;
-  background: radial-gradient(circle, rgba(91,159,216,.5), transparent 67%);
+  opacity: .14;
+  background: radial-gradient(circle, rgba(91,159,216,.46), transparent 68%);
   filter: blur(30px);
+  will-change: left, top;
 }
 
 .cta {
@@ -161,9 +192,9 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: .18;
-  background: radial-gradient(circle at 50% 58%, rgba(255,223,185,.7), transparent 18%);
-  animation: lhCtaGlow 8s ease-in-out infinite;
+  opacity: .16;
+  background: radial-gradient(circle at 50% 58%, rgba(255,223,185,.65), transparent 18%);
+  animation: lhCtaGlow 9s ease-in-out infinite;
 }
 
 .cta .btn.light {
@@ -183,50 +214,55 @@
 }
 
 .cta .btn.light:hover::before {
-  opacity: .65;
-  animation: lhButtonSweep 720ms var(--ease-out) both;
+  opacity: .6;
+  animation: lhButtonSweep 620ms var(--ease-out) both;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .brand-card:hover {
-    transform: translate3d(0, -4px, 0);
-    border-color: rgba(90,132,170,.22);
-    box-shadow: 0 18px 44px rgba(15,25,36,.09);
+    transform: translate3d(0, -3px, 0);
+    border-color: rgba(90,132,170,.2);
+    box-shadow: 0 16px 38px rgba(15,25,36,.085);
   }
 
   .brand-card:hover::before { opacity: 1; }
+  .brand-card:hover::after {
+    opacity: .8;
+    animation: lhCardBeam 760ms var(--ease-out) both;
+  }
 
   .brand-card:hover .art-kairo {
-    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(-4deg) scale(1.025);
+    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(-4deg) scale(1.02);
   }
 
   .brand-card:hover .art-citizen {
-    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(-4deg) scale(1.025);
+    transform: translate3d(var(--card-x), var(--card-y), 0) rotate(-4deg) scale(1.02);
   }
 
   .brand-card:hover .art-next {
-    transform: translate3d(var(--card-x), var(--card-y), 0) scale(1.025);
+    transform: translate3d(var(--card-x), var(--card-y), 0) scale(1.02);
   }
 }
 
 @media (max-width: 900px) {
-  .hero::before { opacity: .13; animation-duration: 38s; }
-  .hero-overlay::after { left: 20%; right: 2%; opacity: .32; }
-  .brand-card::before { display: none; }
+  .hero::before { opacity: .12; animation-duration: 40s; }
+  .hero-overlay::after { left: 20%; right: 2%; opacity: .28; }
+  .brand-card::before,
+  .brand-card::after { display: none; }
+  .capabilities::before { opacity: .08; }
 }
 
 @media (max-width: 560px) {
   .motion-ready .hero-kicker,
-  .motion-ready .hero-copy h1,
   .motion-ready .hero-copy p,
   .motion-ready .hero-actions,
   .motion-ready .hero-side,
   .motion-ready .hero-bottom-left,
   .motion-ready .hero-bottom-right {
-    transform: translate3d(0, 12px, 0);
+    transform: translate3d(0, 10px, 0);
   }
 
-  .motion-reveal { transform: translate3d(0, 14px, 0); }
+  .motion-reveal { transform: translate3d(0, 12px, 0); }
   .hero-overlay::after { top: 47%; filter: blur(7px); }
 }
 
@@ -239,49 +275,62 @@
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
   .hero-overlay::after,
+  .brand-card::after,
   .cta::before,
   .cta .btn.light::before {
     animation: none !important;
   }
 
+  .motion-ready .hero-line > span,
   .motion-reveal,
   .motion-reveal.is-visible {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
   }
 }
 
 @keyframes lhHeaderIn {
-  from { opacity: 0; transform: translate3d(0, -10px, 0); }
+  from { opacity: 0; transform: translate3d(0, -8px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 @keyframes lhHeroIn {
-  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes lhHeroLineIn {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
 }
 
 @keyframes lhStarDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(-24px, 14px, 0) scale(1.015); }
+  to { transform: translate3d(-20px, 12px, 0) scale(1.012); }
 }
 
 @keyframes lhHorizonPulse {
-  0%, 100% { opacity: .32; transform: scaleX(.96); }
-  50% { opacity: .58; transform: scaleX(1.025); }
+  0%, 100% { opacity: .3; transform: scaleX(.97); }
+  50% { opacity: .52; transform: scaleX(1.02); }
 }
 
 @keyframes lhIconIn {
-  0% { opacity: .25; transform: translateY(8px) scale(.93); }
+  0% { opacity: .3; transform: translateY(6px) scale(.95); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes lhCtaGlow {
-  0%, 100% { opacity: .12; transform: scale(.96); }
-  50% { opacity: .22; transform: scale(1.04); }
+  0%, 100% { opacity: .11; transform: scale(.97); }
+  50% { opacity: .2; transform: scale(1.03); }
 }
 
 @keyframes lhButtonSweep {
   from { left: -55%; }
   to { left: 120%; }
+}
+
+@keyframes lhCardBeam {
+  from { transform: translate3d(-150%, 0, 0); }
+  to { transform: translate3d(330%, 0, 0); }
 }
