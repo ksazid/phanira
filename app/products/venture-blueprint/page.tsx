@@ -3,7 +3,7 @@ import ProductDetail from "../ProductDetail";
 
 export const metadata: Metadata = {
   title: "Venture Blueprint — Phanira",
-  description: "Venture Blueprint validates early ideas with market evidence, demand signals, monetisation logic, risk scoring and a clear go, refine or stop recommendation.",
+  description: "Venture Blueprint validates early ideas with market evidence, demand signals, monetisation logic, risk scoring and a clear Go, Refine, or Stop recommendation.",
 };
 
 export default function VentureBlueprintPage() {
@@ -13,7 +13,7 @@ export default function VentureBlueprintPage() {
       category="IDEA VALIDATION & VENTURE INTELLIGENCE"
       headline="Evidence before execution."
       intro="Venture Blueprint validates an idea before significant time and capital are committed. It combines structured problem validation, market evidence, competitive context, monetisation signals and MVP planning into a clear venture decision."
-      promise="Go, refine, or stop — with evidence behind the decision."
+      promise="Go, Refine, or Stop — with evidence behind the decision."
       steps={["Frame the idea", "Problem & persona", "Market evidence", "Demand & MRR", "MVP & risk", "Decision"]}
       audience="For founders and product teams who want to reduce guesswork before building — using Phanira's Idea Validation Framework to move from concept to a defensible next step."
       capabilities={[
@@ -31,7 +31,7 @@ export default function VentureBlueprintPage() {
         },
         {
           title: "MVP, risk & final decision",
-          body: "Define the smallest testable product, score key risks, challenge assumptions through advisory review, sequence validation stages and finish with a clear Go, Refine or Stop recommendation.",
+          body: "Define the smallest testable product, score key risks, challenge assumptions through advisory review, sequence validation stages and finish with a clear Go, Refine, or Stop recommendation.",
         },
       ]}
       brandStyle="venture-blueprint"
