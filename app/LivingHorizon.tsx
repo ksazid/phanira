@@ -39,32 +39,38 @@ export default function LivingHorizon() {
 
     revealTargets.forEach((element, index) => {
       element.classList.add("motion-reveal");
-      element.style.setProperty("--reveal-delay", `${(index % 5) * 55}ms`);
+      element.style.setProperty("--reveal-delay", `${(index % 4) * 45}ms`);
     });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-
-    revealTargets.forEach((element) => observer.observe(element));
+    let observer: IntersectionObserver | null = null;
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              (entry.target as HTMLElement).classList.add("is-visible");
+              observer?.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14, rootMargin: "0px 0px -6% 0px" },
+      );
+      revealTargets.forEach((element) => observer?.observe(element));
+    } else {
+      revealTargets.forEach((element) => element.classList.add("is-visible"));
+    }
 
     const cards = Array.from(document.querySelectorAll<HTMLElement>(".brand-card"));
     const cardCleanups = cards.map((card) => {
       const onPointerMove = (event: PointerEvent) => {
         if (event.pointerType === "touch") return;
         const rect = card.getBoundingClientRect();
-        card.style.setProperty("--spot-x", `${event.clientX - rect.left}px`);
-        card.style.setProperty("--spot-y", `${event.clientY - rect.top}px`);
-        card.style.setProperty("--card-x", `${((event.clientX - rect.left) / rect.width - 0.5) * 7}px`);
-        card.style.setProperty("--card-y", `${((event.clientY - rect.top) / rect.height - 0.5) * 5}px`);
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        card.style.setProperty("--spot-x", `${x}px`);
+        card.style.setProperty("--spot-y", `${y}px`);
+        card.style.setProperty("--card-x", `${(x / rect.width - 0.5) * 5}px`);
+        card.style.setProperty("--card-y", `${(y / rect.height - 0.5) * 4}px`);
       };
       const onPointerLeave = () => {
         card.style.setProperty("--card-x", "0px");
@@ -78,6 +84,15 @@ export default function LivingHorizon() {
       };
     });
 
+    const capabilities = document.querySelector<HTMLElement>(".capabilities");
+    const onCapabilitiesPointerMove = (event: PointerEvent) => {
+      if (!capabilities || event.pointerType === "touch") return;
+      const rect = capabilities.getBoundingClientRect();
+      capabilities.style.setProperty("--cap-glow-x", `${event.clientX - rect.left}px`);
+      capabilities.style.setProperty("--cap-glow-y", `${event.clientY - rect.top}px`);
+    };
+    capabilities?.addEventListener("pointermove", onCapabilitiesPointerMove);
+
     const parallaxSections = Array.from(
       document.querySelectorAll<HTMLElement>(".hero, .belief, .cta"),
     );
@@ -85,11 +100,15 @@ export default function LivingHorizon() {
     let ticking = false;
     const updateParallax = () => {
       const viewportCenter = window.innerHeight / 2;
+      const mobile = window.innerWidth <= 900;
+      const maxTravel = mobile ? 12 : 20;
+      const strength = mobile ? 0.018 : 0.03;
+
       parallaxSections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         const sectionCenter = rect.top + rect.height / 2;
         const distance = viewportCenter - sectionCenter;
-        const amount = clamp(distance * 0.035, -22, 22);
+        const amount = clamp(distance * strength, -maxTravel, maxTravel);
         section.style.setProperty("--parallax-y", `${amount}px`);
       });
       ticking = false;
@@ -108,8 +127,9 @@ export default function LivingHorizon() {
 
     return () => {
       root.classList.remove("motion-ready");
-      observer.disconnect();
+      observer?.disconnect();
       cardCleanups.forEach((cleanup) => cleanup());
+      capabilities?.removeEventListener("pointermove", onCapabilitiesPointerMove);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
