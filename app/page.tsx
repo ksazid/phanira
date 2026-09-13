@@ -58,7 +58,7 @@ export default function Home() {
           <div className="section-head portfolio-head">
             <div>
               <div className="eyebrow">OUR PRODUCTS</div>
-              <h2>Independent brands.<br/>A shared purpose.</h2>
+              <h2>Independent products.<br/>A shared purpose.</h2>
             </div>
             <p>We build and support mission-driven products<br/>that tackle important problems through technology.</p>
             <a className="text-link" href="#product-grid">VIEW ALL <Arrow /></a>
