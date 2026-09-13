@@ -40,7 +40,7 @@ export default function ProductDetail({
     <main className={`product-page${brandStyle ? ` ${brandStyle}-page` : ""}`}>
       <header className="product-header shell">
         <a className="wordmark" href="/" aria-label="Phanira home">PHANIRΛ</a>
-        <a className="back-link" href="/#portfolio">BACK TO PORTFOLIO <Arrow /></a>
+        <a className="back-link" href="/#products">BACK TO PRODUCTS <Arrow /></a>
       </header>
 
       <section className="product-hero">
@@ -95,10 +95,10 @@ export default function ProductDetail({
       <section className="product-close section-light">
         <div className="shell product-close-inner">
           <div>
-            <div className="eyebrow">A PHANIRA COMPANY</div>
+            <div className="eyebrow">A PHANIRA PRODUCT</div>
             <h2>{brandStyle === "venture-blueprint" ? <>Evidence first.<br/>Build with conviction.</> : <>Useful intelligence.<br/>Clearer next steps.</>}</h2>
           </div>
-          <a className="btn dark" href="/#portfolio">EXPLORE OUR PRODUCTS <Arrow /></a>
+          <a className="btn dark" href="/#products">EXPLORE OUR PRODUCTS <Arrow /></a>
         </div>
       </section>
     </main>
