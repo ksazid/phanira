@@ -1,0 +1,5 @@
+@media (max-width: 900px) {
+  .why-grid article:first-child {
+    padding-left: 0;
+  }
+}
