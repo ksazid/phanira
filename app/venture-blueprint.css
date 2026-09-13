@@ -6,62 +6,53 @@
 }
 
 .venture-card {
-  background:
-    linear-gradient(145deg, #fbfcfd 0%, #f4f7f9 58%, #e5ebef 100%);
+  background: linear-gradient(145deg, #fff 0%, #f7f7f7 58%, #e8edf2 100%);
 }
 
-.venture-logo {
+.venture-card-logo {
   display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--ink);
-}
-
-.venture-logo svg {
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.55;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.venture-logo svg circle {
-  fill: var(--paper);
-}
-
-.venture-wordmark {
-  display: flex;
   flex-direction: column;
-  line-height: .92;
+  align-items: flex-start;
+  color: var(--ink);
+  line-height: 1;
 }
 
-.venture-wordmark strong {
-  font-size: 20px;
+.venture-card-logo-primary {
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 400;
   letter-spacing: .13em;
-  font-weight: 700;
+  white-space: nowrap;
 }
 
-.venture-wordmark span {
-  margin-top: 5px;
-  font-size: 9px;
-  letter-spacing: .34em;
-  font-weight: 600;
+.venture-card-logo-secondary {
+  margin-top: 8px;
+  padding-left: 23px;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .42em;
+  white-space: nowrap;
+}
+
+.venture-card .subbrand {
+  margin-top: 13px;
+}
+
+.venture-card .card-content p {
+  max-width: 70%;
 }
 
 .art-venture {
-  inset: auto -4% -12% 34%;
-  height: 62%;
+  inset: auto -8% -18% 34%;
+  height: 66%;
   transform: none;
-  opacity: .74;
+  opacity: .82;
   background:
-    linear-gradient(rgba(77,98,117,.14) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(77,98,117,.14) 1px, transparent 1px),
-    radial-gradient(circle at 68% 62%, rgba(74,126,165,.16), transparent 37%);
-  background-size: 28px 28px, 28px 28px, auto;
-  mask-image: linear-gradient(135deg, transparent 2%, #000 26%, #000 100%);
+    linear-gradient(145deg, transparent 0 22%, rgba(179,192,205,.18) 22% 42%, transparent 42% 48%, rgba(138,156,174,.2) 48% 62%, transparent 62%),
+    radial-gradient(ellipse at 58% 110%, rgba(104,126,146,.42) 0 30%, transparent 31%),
+    radial-gradient(ellipse at 78% 116%, rgba(143,158,174,.32) 0 34%, transparent 35%);
+  clip-path: polygon(10% 26%, 100% 0, 100% 100%, 0 100%, 0 60%);
 }
 
 .venture-blueprint-page .product-hero {
@@ -153,9 +144,8 @@
 }
 
 @media (max-width: 560px) {
-  .venture-wordmark strong { font-size: 18px; }
-  .venture-wordmark span { font-size: 8px; }
-  .venture-logo svg { width: 34px; height: 34px; flex-basis: 34px; }
+  .venture-card-logo-primary { font-size: 24px; }
+  .venture-card-logo-secondary { font-size: 9px; padding-left: 18px; }
 
   .venture-hero-lockup {
     gap: 14px;
