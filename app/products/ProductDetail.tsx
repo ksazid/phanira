@@ -7,9 +7,23 @@ type ProductDetailProps = {
   steps: string[];
   capabilities: Array<{ title: string; body: string }>;
   audience: string;
+  brandStyle?: "venture-blueprint";
 };
 
 const Arrow = () => <span aria-hidden="true">→</span>;
+
+const VentureBlueprintHeroLogo = () => (
+  <div className="venture-hero-lockup" aria-label="Venture Blueprint">
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <rect x="3.5" y="3.5" width="41" height="41" rx="10" />
+      <path d="M12 24.5 20 32.5 36 14" />
+      <circle cx="12" cy="24.5" r="1.7" />
+      <circle cx="20" cy="32.5" r="1.7" />
+      <circle cx="36" cy="14" r="1.7" />
+    </svg>
+    <span><strong>VENTURE</strong><em>BLUEPRINT</em></span>
+  </div>
+);
 
 export default function ProductDetail({
   name,
@@ -20,9 +34,10 @@ export default function ProductDetail({
   steps,
   capabilities,
   audience,
+  brandStyle,
 }: ProductDetailProps) {
   return (
-    <main className="product-page">
+    <main className={`product-page${brandStyle ? ` ${brandStyle}-page` : ""}`}>
       <header className="product-header shell">
         <a className="wordmark" href="/" aria-label="Phanira home">PHANIRΛ</a>
         <a className="back-link" href="/#portfolio">BACK TO PORTFOLIO <Arrow /></a>
@@ -32,7 +47,7 @@ export default function ProductDetail({
         <div className="shell product-hero-grid">
           <div>
             <div className="eyebrow light-text">PHANIRA PRODUCT / {category}</div>
-            <h1>{name}</h1>
+            {brandStyle === "venture-blueprint" ? <VentureBlueprintHeroLogo /> : <h1>{name}</h1>}
             <p className="product-headline">{headline}</p>
           </div>
           <div className="product-intro">
@@ -81,7 +96,7 @@ export default function ProductDetail({
         <div className="shell product-close-inner">
           <div>
             <div className="eyebrow">A PHANIRA COMPANY</div>
-            <h2>Useful intelligence.<br/>Clearer next steps.</h2>
+            <h2>{brandStyle === "venture-blueprint" ? <>Evidence first.<br/>Build with conviction.</> : <>Useful intelligence.<br/>Clearer next steps.</>}</h2>
           </div>
           <a className="btn dark" href="/#portfolio">EXPLORE OUR PRODUCTS <Arrow /></a>
         </div>
