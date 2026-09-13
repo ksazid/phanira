@@ -1,3 +1,5 @@
+import LivingHorizon from "./LivingHorizon";
+
 const Arrow = () => <span aria-hidden="true">→</span>;
 
 const IconPeople = () => (
@@ -18,6 +20,7 @@ const IconCube = () => <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 
 export default function Home() {
   return (
     <main>
+      <LivingHorizon />
       <header className="site-header shell">
         <a className="wordmark" href="#top" aria-label="Phanira home">PHANIRΛ</a>
         <nav aria-label="Primary navigation">
