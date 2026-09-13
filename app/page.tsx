@@ -26,7 +26,7 @@ export default function Home() {
         <a className="wordmark" href="#top" aria-label="Phanira home">PHANIRΛ</a>
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
-          <a href="#portfolio">Portfolio</a>
+          <a href="#products">Products</a>
           <a href="#vision">Vision</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -43,7 +43,7 @@ export default function Home() {
             </h1>
             <p>Phanira builds intelligent products<br className="desktop"/> that turn complex problems into useful,<br className="desktop"/> scalable experiences.</p>
             <div className="hero-actions">
-              <a className="btn light" href="#portfolio">EXPLORE PORTFOLIO <Arrow /></a>
+              <a className="btn light" href="#products">EXPLORE PRODUCTS <Arrow /></a>
               <a className="btn ghost" href="#vision">A BRIGHTER TOMORROW</a>
             </div>
           </div>
@@ -53,23 +53,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="portfolio section-light" id="portfolio">
+      <section className="portfolio section-light" id="products">
         <div className="shell">
           <div className="section-head portfolio-head">
             <div>
-              <div className="eyebrow">OUR PORTFOLIO</div>
+              <div className="eyebrow">OUR PRODUCTS</div>
               <h2>Independent brands.<br/>A shared purpose.</h2>
             </div>
-            <p>We build and support mission-driven companies<br/>that tackle important problems through technology.</p>
-            <a className="text-link" href="#portfolio-grid">VIEW ALL <Arrow /></a>
+            <p>We build and support mission-driven products<br/>that tackle important problems through technology.</p>
+            <a className="text-link" href="#product-grid">VIEW ALL <Arrow /></a>
           </div>
 
-          <div className="portfolio-grid" id="portfolio-grid">
+          <div className="portfolio-grid" id="product-grid">
             <VentureBlueprintCard />
             <article className="brand-card kairo-card">
               <div className="card-content">
                 <h3 className="kairo-logo">KAIRO</h3>
-                <div className="subbrand">A PHANIRA COMPANY</div>
+                <div className="subbrand">A PHANIRA PRODUCT</div>
                 <p>AI content intelligence that turns brand context and live signals into evidence-backed ideas.</p>
                 <a className="card-link" href="/products/kairo" aria-label="Learn more about Kairo">LEARN MORE <Arrow /></a>
               </div>
@@ -78,7 +78,7 @@ export default function Home() {
             <article className="brand-card citizen-card">
               <div className="card-content">
                 <h3 className="citizen-logo">CitizenAI</h3>
-                <div className="subbrand">A PHANIRA COMPANY</div>
+                <div className="subbrand">A PHANIRA PRODUCT</div>
                 <p>Personalised citizenship learning that adapts from first diagnostic to pass-ready preparation.</p>
                 <a className="card-link" href="/products/citizenai" aria-label="Learn more about CitizenAI">LEARN MORE <Arrow /></a>
               </div>
@@ -87,7 +87,7 @@ export default function Home() {
             <article className="brand-card next-card">
               <div className="card-content">
                 <h3 className="next-logo">What’s next?</h3>
-                <div className="subbrand">A PHANIRA COMPANY</div>
+                <div className="subbrand">A PHANIRA PRODUCT</div>
                 <p>Different problems. The same belief: useful technology should make a meaningful difference.</p>
                 <span className="card-status">MORE IN DEVELOPMENT</span>
               </div>
@@ -160,7 +160,7 @@ export default function Home() {
       <footer className="footer">
         <div className="shell footer-inner">
           <a className="wordmark footer-logo" href="#top" aria-label="Back to top">PHANIRΛ</a>
-          <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#vision">Vision</a><a href="#contact">Contact</a></nav>
+          <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#products">Products</a><a href="#vision">Vision</a><a href="#contact">Contact</a></nav>
           <div className="footer-domain">PHANIRA.COM</div>
           <div className="footer-tagline">A MORE INTELLIGENT TOMORROW.</div>
         </div>
