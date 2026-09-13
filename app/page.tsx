@@ -36,7 +36,10 @@ export default function Home() {
         <div className="shell hero-inner">
           <div className="hero-kicker">PEOPLE &nbsp;&nbsp; IDEAS &nbsp;&nbsp; TECHNOLOGY &nbsp;&nbsp; A BRIGHTER TOMORROW</div>
           <div className="hero-copy">
-            <h1>Ideas into<br/>existence.</h1>
+            <h1 aria-label="Ideas into existence.">
+              <span className="hero-line"><span>Ideas into</span></span>
+              <span className="hero-line"><span>existence.</span></span>
+            </h1>
             <p>Phanira builds intelligent products<br className="desktop"/> that turn complex problems into useful,<br className="desktop"/> scalable experiences.</p>
             <div className="hero-actions">
               <a className="btn light" href="#portfolio">EXPLORE PORTFOLIO <Arrow /></a>
