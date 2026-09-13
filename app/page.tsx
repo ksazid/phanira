@@ -1,19 +1,7 @@
 import LivingHorizon from "./LivingHorizon";
+import VentureBlueprintCard from "./components/VentureBlueprintCard";
 
 const Arrow = () => <span aria-hidden="true">→</span>;
-
-const VentureBlueprintLogo = () => (
-  <div className="venture-logo" aria-label="Venture Blueprint">
-    <svg viewBox="0 0 36 36" aria-hidden="true">
-      <rect x="2.5" y="2.5" width="31" height="31" rx="8" />
-      <path d="M9 18.5 15.5 25 27 11" />
-      <circle cx="9" cy="18.5" r="1.5" />
-      <circle cx="15.5" cy="25" r="1.5" />
-      <circle cx="27" cy="11" r="1.5" />
-    </svg>
-    <span className="venture-wordmark"><strong>VENTURE</strong><span>BLUEPRINT</span></span>
-  </div>
-);
 
 const IconPeople = () => (
   <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="16" r="6"/><circle cx="31" cy="18" r="5"/><path d="M7 38c0-8 5-13 10-13s10 5 10 13M25 38c0-6 3-10 8-10 4 0 8 4 8 10"/></svg>
@@ -77,15 +65,7 @@ export default function Home() {
           </div>
 
           <div className="portfolio-grid" id="portfolio-grid">
-            <article className="brand-card venture-card">
-              <div className="card-content">
-                <VentureBlueprintLogo />
-                <div className="subbrand">A PHANIRA COMPANY</div>
-                <p>Idea validation that turns early concepts into evidence-backed venture decisions before time and capital are committed.</p>
-                <a className="card-link" href="/products/venture-blueprint" aria-label="Learn more about Venture Blueprint">LEARN MORE <Arrow /></a>
-              </div>
-              <div className="card-art art-venture" aria-hidden="true" />
-            </article>
+            <VentureBlueprintCard />
             <article className="brand-card kairo-card">
               <div className="card-content">
                 <h3 className="kairo-logo">KAIRO</h3>
