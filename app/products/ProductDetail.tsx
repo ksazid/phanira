@@ -12,18 +12,26 @@ type ProductDetailProps = {
 
 const Arrow = () => <span aria-hidden="true">→</span>;
 
-const VentureBlueprintHeroLogo = () => (
-  <div className="venture-hero-lockup" aria-label="Venture Blueprint">
-    <svg viewBox="0 0 48 48" aria-hidden="true">
-      <rect x="3.5" y="3.5" width="41" height="41" rx="10" />
-      <path d="M12 24.5 20 32.5 36 14" />
-      <circle cx="12" cy="24.5" r="1.7" />
-      <circle cx="20" cy="32.5" r="1.7" />
-      <circle cx="36" cy="14" r="1.7" />
-    </svg>
-    <span><strong>VENTURE</strong><em>BLUEPRINT</em></span>
-  </div>
-);
+const ProductHeroLogo = ({ name, brandStyle }: Pick<ProductDetailProps, "name" | "brandStyle">) => {
+  if (brandStyle === "venture-blueprint") {
+    return (
+      <div className="venture-card-logo product-detail-brand" aria-label="Venture Blueprint">
+        <span className="venture-card-logo-primary">VΞNTURE</span>
+        <span className="venture-card-logo-secondary">BLUEPRINT</span>
+      </div>
+    );
+  }
+
+  if (name === "KAIRO") {
+    return <div className="kairo-logo product-detail-brand" aria-label="Kairo">KAIRO</div>;
+  }
+
+  if (name === "CitizenAI") {
+    return <div className="citizen-logo product-detail-brand" aria-label="CitizenAI">CitizenAI</div>;
+  }
+
+  return <h1>{name}</h1>;
+};
 
 export default function ProductDetail({
   name,
@@ -47,7 +55,7 @@ export default function ProductDetail({
         <div className="shell product-hero-grid">
           <div>
             <div className="eyebrow light-text">PHANIRA PRODUCT / {category}</div>
-            {brandStyle === "venture-blueprint" ? <VentureBlueprintHeroLogo /> : <h1>{name}</h1>}
+            <ProductHeroLogo name={name} brandStyle={brandStyle} />
             <p className="product-headline">{headline}</p>
           </div>
           <div className="product-intro">
