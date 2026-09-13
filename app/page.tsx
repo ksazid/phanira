@@ -20,7 +20,7 @@ export default function Home() {
     <main>
       <header className="site-header shell">
         <a className="wordmark" href="#top" aria-label="Phanira home">PHANIRΛ</a>
-        <nav>
+        <nav aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#vision">Vision</a>
@@ -54,36 +54,36 @@ export default function Home() {
               <h2>Independent brands.<br/>A shared purpose.</h2>
             </div>
             <p>We build and support mission-driven companies<br/>that tackle important problems through technology.</p>
-            <a href="#portfolio">VIEW ALL <Arrow /></a>
+            <a className="text-link" href="#portfolio-grid">VIEW ALL <Arrow /></a>
           </div>
 
-          <div className="portfolio-grid">
+          <div className="portfolio-grid" id="portfolio-grid">
             <article className="brand-card kairo-card">
               <div className="card-content">
                 <h3 className="kairo-logo">KAIRO</h3>
                 <div className="subbrand">A PHANIRA COMPANY</div>
-                <p>AI content intelligence<br/>for a more informed world.</p>
-                <a href="#">LEARN MORE <Arrow /></a>
+                <p>AI content intelligence that turns brand context and live signals into evidence-backed ideas.</p>
+                <a className="card-link" href="/products/kairo" aria-label="Learn more about Kairo">LEARN MORE <Arrow /></a>
               </div>
-              <div className="card-art art-kairo" />
+              <div className="card-art art-kairo" aria-hidden="true" />
             </article>
             <article className="brand-card citizen-card">
               <div className="card-content">
                 <h3 className="citizen-logo">CitizenAI</h3>
                 <div className="subbrand">A PHANIRA COMPANY</div>
-                <p>Citizenship learning<br/>for a more open world.</p>
-                <a href="#">LEARN MORE <Arrow /></a>
+                <p>Personalised citizenship learning that adapts from first diagnostic to pass-ready preparation.</p>
+                <a className="card-link" href="/products/citizenai" aria-label="Learn more about CitizenAI">LEARN MORE <Arrow /></a>
               </div>
-              <div className="card-art art-citizen" />
+              <div className="card-art art-citizen" aria-hidden="true" />
             </article>
             <article className="brand-card next-card">
               <div className="card-content">
                 <h3 className="next-logo">What’s next?</h3>
                 <div className="subbrand">A PHANIRA COMPANY</div>
-                <p>Different problems.<br/>The same belief.</p>
-                <a href="#">LEARN MORE <Arrow /></a>
+                <p>Different problems. The same belief: useful technology should make a meaningful difference.</p>
+                <span className="card-status">MORE IN DEVELOPMENT</span>
               </div>
-              <div className="card-art art-next" />
+              <div className="card-art art-next" aria-hidden="true" />
             </article>
           </div>
         </div>
@@ -151,8 +151,8 @@ export default function Home() {
 
       <footer className="footer">
         <div className="shell footer-inner">
-          <div className="wordmark footer-logo">PHANIRΛ</div>
-          <nav><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#vision">Vision</a><a href="#contact">Contact</a></nav>
+          <a className="wordmark footer-logo" href="#top" aria-label="Back to top">PHANIRΛ</a>
+          <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#vision">Vision</a><a href="#contact">Contact</a></nav>
           <div className="footer-domain">PHANIRA.COM</div>
           <div className="footer-tagline">A MORE INTELLIGENT TOMORROW.</div>
         </div>
