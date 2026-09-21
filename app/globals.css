@@ -28,8 +28,11 @@ h1,h2,h3 { font-family: var(--font-serif), Georgia, serif; font-weight: 500; mar
 .site-header nav a, .footer nav a, .back-link, .text-link, .card-link {
   transition: color 160ms var(--ease-out), opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
 }
-.site-header nav a:hover, .footer nav a:hover, .back-link:hover, .text-link:hover, .card-link:hover { opacity: .58; }
 .site-header nav a:active, .footer nav a:active, .back-link:active, .text-link:active, .card-link:active { transform: scale(.97); }
+
+@media (hover: hover) and (pointer: fine) {
+  .site-header nav a:hover, .footer nav a:hover, .back-link:hover, .text-link:hover, .card-link:hover { opacity: .58; }
+}
 
 .hero { position: relative; min-height: 680px; color: white; background: #07111b url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2200&q=88') center 48%/cover no-repeat; overflow: hidden; }
 .hero::after { content:""; position:absolute; inset:0; background: radial-gradient(circle at 62% 48%, rgba(255,196,135,.24), transparent 18%), linear-gradient(180deg, transparent 58%, rgba(3,9,15,.25)); pointer-events:none; }
@@ -43,11 +46,14 @@ h1,h2,h3 { font-family: var(--font-serif), Georgia, serif; font-weight: 500; mar
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 48px; padding: 0 26px; border-radius: 999px; font-size: 11px; letter-spacing: .15em; font-weight: 700; transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out), border-color 160ms var(--ease-out); }
 .btn:active { transform: scale(.97); }
 .btn.light { background: white; color: var(--ink); }
-.btn.light:hover { background: #eef2f4; }
 .btn.ghost { border: 1px solid rgba(255,255,255,.45); color: white; }
-.btn.ghost:hover { border-color: rgba(255,255,255,.82); }
 .btn.dark { background: var(--ink); color: white; }
-.btn.dark:hover { background: #18202a; }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn.light:hover { background: #eef2f4; }
+  .btn.ghost:hover { border-color: rgba(255,255,255,.82); }
+  .btn.dark:hover { background: #18202a; }
+}
 .hero-side { position: absolute; top: 90px; right: 6px; font-size: 11px; line-height: 1.8; letter-spacing: .32em; }
 .hero-bottom-left, .hero-bottom-right { position: absolute; bottom: 28px; font-size: 9px; line-height: 1.7; letter-spacing: .3em; }
 .hero-bottom-left { left: 0; padding-left: 22px; border-left: 2px solid rgba(255,255,255,.85); }

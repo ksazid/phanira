@@ -69,6 +69,18 @@
   color: white;
 }
 
+.product-hero h1.product-detail-brand.kairo-logo,
+.product-hero h1.product-detail-brand.citizen-logo {
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.product-hero h1.product-detail-brand.venture-card-logo {
+  font-size: initial;
+  line-height: 1;
+}
+
 .venture-blueprint-page .product-hero {
   position: relative;
   overflow: hidden;

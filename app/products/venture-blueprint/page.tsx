@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import ProductDetail from "../ProductDetail";
 
 export const metadata: Metadata = {
-  title: "Venture Blueprint — Phanira",
+  title: "Venture Blueprint — Evidence-Led Idea Validation",
   description: "Venture Blueprint validates early ideas with market evidence, demand signals, monetisation logic, risk scoring and a clear Go, Refine, or Stop recommendation.",
+  alternates: { canonical: "/products/venture-blueprint" },
+  openGraph: { title: "Venture Blueprint — Evidence-Led Idea Validation | Phanira", description: "Venture Blueprint helps founders validate ideas before significant time and capital are committed.", url: "/products/venture-blueprint", type: "website" },
 };
 
 export default function VentureBlueprintPage() {
   return (
     <ProductDetail
+      slug="venture-blueprint"
       name="Venture Blueprint"
       category="IDEA VALIDATION & VENTURE INTELLIGENCE"
       headline="Evidence before execution."

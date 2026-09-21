@@ -163,6 +163,13 @@ export default function Home() {
           <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#products">Products</a><a href="#vision">Vision</a><a href="#contact">Contact</a></nav>
           <div className="footer-domain">PHANIRA.COM</div>
           <div className="footer-tagline">A MORE INTELLIGENT TOMORROW.</div>
+          <div className="site-footer-links" aria-label="More Phanira pages">
+            <a href="/about">About Phanira</a>
+            <a href="/products">All products</a>
+            <a href="/capabilities">Capabilities</a>
+            <a href="/brand">Brand</a>
+            <a href="/contact">Contact</a>
+          </div>
         </div>
       </footer>
     </main>
