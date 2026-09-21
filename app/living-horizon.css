@@ -136,10 +136,12 @@
   transition: transform 160ms var(--ease-out);
 }
 
-.card-link:hover span,
-.text-link:hover span,
-.btn:hover span {
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  .card-link:hover span,
+  .text-link:hover span,
+  .btn:hover span {
+    transform: translateX(4px);
+  }
 }
 
 .belief {
@@ -213,9 +215,11 @@
   opacity: 0;
 }
 
-.cta .btn.light:hover::before {
-  opacity: .6;
-  animation: lhButtonSweep 620ms var(--ease-out) both;
+@media (hover: hover) and (pointer: fine) {
+  .cta .btn.light:hover::before {
+    opacity: .6;
+    animation: lhButtonSweep 620ms var(--ease-out) both;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {

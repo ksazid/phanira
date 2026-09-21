@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import ProductDetail from "../ProductDetail";
 
 export const metadata: Metadata = {
-  title: "CitizenAI — Phanira",
+  title: "CitizenAI — Personalised Citizenship Learning",
   description: "CitizenAI is personalised citizenship learning that adapts from diagnostic to pass-ready preparation.",
+  alternates: { canonical: "/products/citizenai" },
+  openGraph: { title: "CitizenAI — Personalised Citizenship Learning | Phanira", description: "CitizenAI adapts citizenship learning from diagnostic to pass-ready preparation.", url: "/products/citizenai", type: "website" },
 };
 
 export default function CitizenAIPage() {
   return (
     <ProductDetail
+      slug="citizenai"
       name="CitizenAI"
       category="LEARNING & CIVIC INTELLIGENCE"
       headline="A clearer path from first diagnostic to Pass Ready."

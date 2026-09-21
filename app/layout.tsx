@@ -4,19 +4,58 @@ import "./globals.css";
 import "./mobile-fixes.css";
 import "./living-horizon.css";
 import "./venture-blueprint.css";
+import "./extension.css";
+import StructuredData from "./components/StructuredData";
+import Analytics from "./components/Analytics";
+import { siteDescription, siteUrl } from "./site-config";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Phanira — Ideas into existence.",
-  description: "Phanira builds intelligent products that turn complex problems into useful, scalable experiences."
+  metadataBase: new URL(siteUrl),
+  title: { default: "Phanira — Ideas into existence.", template: "%s | Phanira" },
+  description: siteDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Phanira",
+    title: "Phanira — Ideas into existence.",
+    description: siteDescription,
+    url: siteUrl,
+    locale: "en_GB",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Phanira — Ideas into existence." }],
+  },
+  twitter: { card: "summary_large_image", title: "Phanira — Ideas into existence.", description: siteDescription, images: ["/opengraph-image"] },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Analytics />
+        <StructuredData data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Phanira",
+          url: siteUrl,
+          description: siteDescription,
+          email: "hello@phanira.com",
+          knowsAbout: ["AI product development", "Brand intelligence", "Learning experiences", "Product strategy", "Scalable systems"],
+        }} />
+        <StructuredData data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Phanira",
+          url: siteUrl,
+          description: siteDescription,
+        }} />
+        {children}
+      </body>
     </html>
   );
 }

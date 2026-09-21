@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import ProductDetail from "../ProductDetail";
 
 export const metadata: Metadata = {
-  title: "Kairo — Phanira",
+  title: "Kairo — AI Content Intelligence",
   description: "Kairo is AI content intelligence that turns brand context and live discovery into evidence-backed content opportunities.",
+  alternates: { canonical: "/products/kairo" },
+  openGraph: { title: "Kairo — AI Content Intelligence | Phanira", description: "Kairo turns brand context and live discovery into evidence-backed content opportunities.", url: "/products/kairo", type: "website" },
 };
 
 export default function KairoPage() {
   return (
     <ProductDetail
+      slug="kairo"
       name="KAIRO"
       category="AI CONTENT INTELLIGENCE"
       headline="From brand context to evidence-backed content opportunities."

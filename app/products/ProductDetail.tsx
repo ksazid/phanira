@@ -1,4 +1,8 @@
+import StructuredData from "../components/StructuredData";
+import { siteUrl } from "../site-config";
+
 type ProductDetailProps = {
+  slug: string;
   name: string;
   category: string;
   headline: string;
@@ -15,25 +19,26 @@ const Arrow = () => <span aria-hidden="true">→</span>;
 const ProductHeroLogo = ({ name, brandStyle }: Pick<ProductDetailProps, "name" | "brandStyle">) => {
   if (brandStyle === "venture-blueprint") {
     return (
-      <div className="venture-card-logo product-detail-brand" aria-label="Venture Blueprint">
+      <h1 className="venture-card-logo product-detail-brand" aria-label="Venture Blueprint">
         <span className="venture-card-logo-primary">VΞNTURE</span>
         <span className="venture-card-logo-secondary">BLUEPRINT</span>
-      </div>
+      </h1>
     );
   }
 
   if (name === "KAIRO") {
-    return <div className="kairo-logo product-detail-brand" aria-label="Kairo">KAIRO</div>;
+    return <h1 className="kairo-logo product-detail-brand" aria-label="Kairo">KAIRO</h1>;
   }
 
   if (name === "CitizenAI") {
-    return <div className="citizen-logo product-detail-brand" aria-label="CitizenAI">CitizenAI</div>;
+    return <h1 className="citizen-logo product-detail-brand" aria-label="CitizenAI">CitizenAI</h1>;
   }
 
   return <h1>{name}</h1>;
 };
 
 export default function ProductDetail({
+  slug,
   name,
   category,
   headline,
@@ -86,7 +91,10 @@ export default function ProductDetail({
               <div className="eyebrow light-text">WHAT IT DOES</div>
               <h2>Built around the outcome.</h2>
             </div>
-            <p>{audience}</p>
+            <div>
+              <h3 className="sr-only">Who it is for</h3>
+              <p>{audience}</p>
+            </div>
           </div>
           <div className="product-feature-grid">
             {capabilities.map((item, index) => (
@@ -106,9 +114,21 @@ export default function ProductDetail({
             <div className="eyebrow">A PHANIRA PRODUCT</div>
             <h2>{brandStyle === "venture-blueprint" ? <>Evidence first.<br/>Build with conviction.</> : <>Useful intelligence.<br/>Clearer next steps.</>}</h2>
           </div>
-          <a className="btn dark" href="/#products">EXPLORE OUR PRODUCTS <Arrow /></a>
+          <div className="extension-actions">
+            <a className="btn dark" href="/#products">EXPLORE OUR PRODUCTS <Arrow /></a>
+            <a className="btn dark" href="/contact">DISCUSS THIS PRODUCT <Arrow /></a>
+          </div>
         </div>
       </section>
+      <StructuredData data={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name,
+        applicationCategory: category,
+        description: intro,
+        url: `${siteUrl}/products/${slug}`,
+        brand: { "@type": "Brand", name: "Phanira" },
+      }} />
     </main>
   );
 }
