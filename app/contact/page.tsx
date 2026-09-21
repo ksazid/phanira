@@ -27,7 +27,7 @@ export default function ContactPage() {
         </div>
         <div>
           <p className="extension-section-lede light-lede">Email us with the context, the problem, and the next step you are considering.</p>
-          <div className="extension-actions"><a className="btn dark" href="mailto:hello@phanira.com">EMAIL PHANIRA <span aria-hidden="true">→</span></a></div>
+          <div className="extension-actions"><a className="btn dark" data-analytics-event="contact_email" href="mailto:hello@phanira.com">EMAIL PHANIRA <span aria-hidden="true">→</span></a></div>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import "./living-horizon.css";
 import "./venture-blueprint.css";
 import "./extension.css";
 import StructuredData from "./components/StructuredData";
+import Analytics from "./components/Analytics";
 import { siteDescription, siteUrl } from "./site-config";
 
 const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
@@ -23,14 +24,20 @@ export const metadata: Metadata = {
     description: siteDescription,
     url: siteUrl,
     locale: "en_GB",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Phanira — Ideas into existence." }],
   },
-  twitter: { card: "summary", title: "Phanira — Ideas into existence.", description: siteDescription },
+  twitter: { card: "summary_large_image", title: "Phanira — Ideas into existence.", description: siteDescription, images: ["/opengraph-image"] },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION } : undefined,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
+        <Analytics />
         <StructuredData data={{
           "@context": "https://schema.org",
           "@type": "Organization",
